@@ -83,6 +83,10 @@ out
 dist
 .output
 
+
+# generated types
+.astro/
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
@@ -141,3 +145,9 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# jetbrains setting folder
+.idea/
+
+# vscode settings
+.vscode/
