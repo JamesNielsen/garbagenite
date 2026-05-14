@@ -1,4 +1,5 @@
 ---
+import { ACTION_QUERY_PARAMS, ActionError } from 'astro:actions';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -13,35 +14,46 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
+			<h2>Welcome to GarbageNite!</h2>
+			<p> Become part of the ultimate new national pastime!
+			</p>
+			<h3> What is GarbageNite?</h3> 
+			<em>A bit of history</em> 
 			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
+				A while back......  
+				While living in California, Johnny was introduced to the weekly event of moving your trash cans out to the street. 
+				He had grown up in Montana where there were alleys, and you just dumped your garbage in cans in the dark alley and 
+				that was that. But there are few alleys in CA.  
 			</p>
 			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
+				I looked forward to garbage nite each week. I was friendly with the neighbors, and it was a nice chance to visit and 
+				hang out when we'd see each other, taking the trash out. <strong>After all, anything that can keep you outside awhile 
+				longer (in the fresh air...away from nagging and chores...dirty diapers...homework help) I'm all for!</strong> Before 
+				long, we'd pull out the beer and wine, and there we had it - Garbage Night. After all, the ladies had been going to 
+				Ladies Night Out, Bunko, or Book Clubs forever, leaving us home to tend to the home fires. Now we had something to do, 
+				to keep us connected, and all under the ruse of a chore that must be done - taking out the garbage. It works!
 			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
+			<p> 
+				A few years ago I moved to Minnesota and tried to get to know new neighbors. I'd pull out my trashcan, and bring an 
+				extra beer for the neighbors. It wasn't long before Al and Dan became regulars. Al has never missed a nite, Dan just a 
+				couple, and me, well, I travel so I miss more than a few. We have gone out in the dead of winter (20 below) and faced 
+				the deadly mosquitoes in the heat of summer. We have added food from time to time, including the fresh kill from the 
+				hunters, Al and Dan. Some, like Tim the Teacher, are more fair weather garbage nite guys. Any and all the neighbors are 
+				welcome.
 			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
+			<p> 
+				<strong>Garbage Nite is a chance to stay connected with your neighbors, and a chance for us guys to just hang out.</strong> 
+				It can last for as little as 30 minutes to as much as 3 hours... once you are out, what's stopping you. And now, the 
+				recycling can take even more time... you tell the little woman that one, it works every time for an extra hour out. 
+				ALWAYS have something to drink... I can suggest some nice wines that pair perfectly with garbage. Leinenkugel's beer or 
+				an Oktoberfest ale in the fall are also wonderful ideas. And don't fret, for those that don't drink, a plain water will 
+				be just fine to give you that sociable feel of hanging out with the MEN.
+			</p>
+			<p> 
+				<span style="color: red; font-weight: bold;">Take Control! Start your own GarbageNite ...any night of the week!</span> 
+			</p>
+			<p> 
+				Get to know your neighbors, start up a local GarbageNite group. Let us know what you are doing at YOUR garbage nite (via email) and we'll add your own area to our website!  Check back often!  We will soon be offering GarbageNite apparel and stuff
 			</p>
 		</main>
 		<Footer />
