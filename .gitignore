@@ -148,6 +148,3 @@ vite.config.ts.timestamp-*
 
 # jetbrains setting folder
 .idea/
-
-# vscode settings
-.vscode/

@@ -42,7 +42,7 @@ export default defineConfig([
   {
     files: ["src/styles/global.css"],
     rules: {
-      "css/no-invalid-properties": "off", // Silences the variable and background errors
+      "css/no-invalid-properties": "warn",
       "css/no-important": "off", // Silences the !important flag
       "css/use-baseline": "off", // Silences the browser compatibility checks
     },
