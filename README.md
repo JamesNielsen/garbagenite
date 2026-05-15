@@ -1,4 +1,5 @@
 # garbagenite
+
 Garbage Nite website
 
 Code is licensed under MIT. Content and media are licensed under [CC BY-NC-SA 4.0.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
