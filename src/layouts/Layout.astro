@@ -1,93 +1,26 @@
 ---
-// 1. Define the TypeScript interface for the incoming properties
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
 }
 
-// 2. Safely extract properties with fallback defaults
 const { title, description = "Garbage Nite Archive." } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <BaseHead title={title} description={description} />
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/originals">Originals</a>
-      </nav>
-    </header>
-
+    <Header />
     <main>
       <slot />
     </main>
-
-    <footer>
-      <p>&copy; {new Date().getFullYear()} Garbage Nite. Built with Astro.</p>
-    </footer>
+    <Footer />
   </body>
 </html>
-
-<style>
-  /* Minimal, non-intrusive baseline layout styles */
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #13151a; /* Dark background default */
-    color: #ffffff;
-    font-family: sans-serif;
-  }
-
-  header {
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #23262d;
-    background: #17191e;
-  }
-
-  nav {
-    display: flex;
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  nav a:hover {
-    color: #ff3e00; /* Subtle highlight color */
-  }
-
-  main {
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid #23262d;
-    font-size: 0.9rem;
-    color: #666;
-  }
-</style>
