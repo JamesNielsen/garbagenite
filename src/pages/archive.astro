@@ -1,0 +1,105 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { archivePhotos } from "../content/site";
+---
+
+<SiteLayout
+  title="Original Archive"
+  description="Original Garbage Nite photos and captions."
+>
+  <main>
+    <section class="page-intro">
+      <p class="eyebrow">Original archive</p>
+      <h1>The classic photos, preserved and captioned.</h1>
+      <p>
+        Here lies the content I resurrected from the wayback machine off the
+        original site. There was some "content" that couldn't be recovered ;)
+      </p>
+    </section>
+
+    <section class="original-note" aria-labelledby="original-note-heading">
+      <h2 id="original-note-heading"><em>A bit of history</em></h2>
+      <p>A while back......</p>
+      <p>
+        While living in California, I was introduced to the weekly event of
+        moving your trash cans out to the street. I had grown up in Montana
+        where there were alleys, and you just dumped your garbage in cans in the
+        dark alley and that was that. But there are few alleys in CA.
+      </p>
+      <p>
+        I looked forward to garbage nite each week. I was friendly with the
+        neighbors, and it was a nice chance to visit and hang out when we'd see
+        each other, taking the trash out.
+        <strong
+          ><em>
+            After all, anything that can keep you outside awhile longer (in the
+            fresh air...away from nagging and chores...dirty diapers...homework
+            help) I'm all for!
+          </em></strong
+        >
+        Before long, we'd pull out the beer and wine, and there we had it - Garbage
+        Night. After all, the ladies had been going to Ladies Night Out, Bunko, or
+        Book Clubs forever, leaving us home to tend to the home fires. Now we had
+        something to do, to keep us connected, and all under the ruse of a chore that
+        must be done - taking out the garbage. It works!
+      </p>
+      <p>
+        A few years ago I moved to Minnesota and tried to get to know new
+        neighbors. I'd pull out my trashcan, and bring an
+        <strong><em>extra beer</em></strong>
+        for the neighbors. It wasn't long before Al and Dan became regulars. Al has
+        never missed a nite, Dan just a couple, and me, well, I travel so I miss more
+        than a few. We have gone out in the dead of winter (20 below) and faced the
+        deadly mosquitoes in the heat of summer. We have added food from time to time,
+        including the <strong><em>fresh kill</em></strong>
+        from the hunters, Al and Dan. Some, like Tim the Teacher, are more fair weather
+        garbage nite guys. Any and all the neighbors are welcome, but remember, <strong
+          class="original-note-big">GarbageNite is MANLY.</strong
+        >
+      </p>
+      <p>
+        <strong>
+          Garbage Nite is a chance to stay connected with your neighbors, and a
+          chance for us guys to just hang out.
+        </strong>
+        It can last for as little as 30 minutes to as much as 3 hours... once you
+        are out, what's stopping you. And now, the recycling can take even more time...
+        you tell the little woman that one, it works every time for an extra hour
+        out. <strong>ALWAYS</strong> have something to drink... I can suggest some
+        nice wines that pair perfectly with garbage. Leinenkugel's beer or an Oktoberfest
+        ale in the fall are also wonderful ideas. And don't fret, for those that don't
+        drink, a plain water will be just fine to give you that sociable feel of hanging
+        out with the <strong>MEN.</strong>
+      </p>
+      <p class="original-note-callout">
+        Take Control! Start your own GarbageNite ...any night of the week!
+      </p>
+      <p>
+        Get to know your neighbors, start up a local GarbageNite group. Let us
+        know what you are doing at <strong
+          >YOUR garbage nite (via email) and we'll add your own area to our
+          website!</strong
+        > Check back often!
+        <strong
+          ><em>We will soon be offering GarbageNite apparel and stuff</em
+          ></strong
+        >
+      </p>
+    </section>
+
+    <section class="archive-grid" aria-label="Original photos">
+      {
+        archivePhotos.map((photo) => (
+          <article class="archive-card">
+            <img src={photo.src} alt={photo.title} loading="lazy" />
+            <div>
+              <p>{photo.year}</p>
+              <h2>{photo.title}</h2>
+              <span>{photo.caption}</span>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</SiteLayout>

@@ -1,0 +1,32 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/archive", label: "Archive" },
+  { href: "/nites", label: "Nites" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Garbage Nite home">
+    <img src="/gn-logo-new-small.png" alt="" width="255" height="87" />
+  </a>
+  <nav aria-label="Main navigation">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            "nav-link",
+            currentPath === item.href || currentPath.startsWith(`${item.href}/`)
+              ? "is-active"
+              : "",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

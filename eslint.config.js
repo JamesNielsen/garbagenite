@@ -7,7 +7,7 @@ import css from "@eslint/css";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
-  { ignores: [".astro/", "node_modules/", "package-lock.json"] },
+  { ignores: [".astro/", "dist/", "node_modules/", "package-lock.json"] },
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     plugins: { js },
