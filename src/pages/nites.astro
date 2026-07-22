@@ -1,0 +1,34 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { recentNites } from "../content/site";
+---
+
+<SiteLayout title="Nites" description="Future Garbage Nite posts and photo updates.">
+  <main>
+    <section class="page-intro">
+      <p class="eyebrow">Future posting area</p>
+      <h1>Posts from Garbage Nite will live here.</h1>
+      <p>
+        For now this page is a placeholder with the right content shape. Later,
+        this can be backed by a small private posting flow for notes, captions,
+        and photo uploads while everyone is hanging out.
+      </p>
+    </section>
+
+    <section class="nite-logo-feature" aria-label="New Garbage Nite logo">
+      <img src="/GN-weathered.png" alt="Weathered Garbage Nite sign" />
+    </section>
+
+    <section class="nite-list nite-page-list">
+      {
+        recentNites.map((nite) => (
+          <article>
+            <p>{nite.date}</p>
+            <h2>{nite.title}</h2>
+            <span>{nite.summary}</span>
+          </article>
+        ))
+      }
+    </section>
+  </main>
+</SiteLayout>

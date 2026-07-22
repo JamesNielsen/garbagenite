@@ -1,60 +1,103 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { archivePhotos, recentNites, site } from "../content/site";
+
+const featuredPhotos = archivePhotos.slice(0, 4);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h2>Welcome to GarbageNite!</h2>
-			<p> Become part of the ultimate new national pastime!
-			</p>
-			<h3> What is GarbageNite?</h3> 
-			<em>A bit of history</em> 
-			<p>
-				A while back......  
-				While living in California, Johnny was introduced to the weekly event of moving your trash cans out to the street. 
-				He had grown up in Montana where there were alleys, and you just dumped your garbage in cans in the dark alley and 
-				that was that. But there are few alleys in CA.  
-			</p>
-			<p>
-				I looked forward to garbage nite each week. I was friendly with the neighbors, and it was a nice chance to visit and 
-				hang out when we'd see each other, taking the trash out. <strong>After all, anything that can keep you outside awhile 
-				longer (in the fresh air...away from nagging and chores...dirty diapers...homework help) I'm all for!</strong> Before 
-				long, we'd pull out the beer and wine, and there we had it - Garbage Night. After all, the ladies had been going to 
-				Ladies Night Out, Bunko, or Book Clubs forever, leaving us home to tend to the home fires. Now we had something to do, 
-				to keep us connected, and all under the ruse of a chore that must be done - taking out the garbage. It works!
-			</p>
-			<p> 
-				A few years ago I moved to Minnesota and tried to get to know new neighbors. I'd pull out my trashcan, and bring an 
-				extra beer for the neighbors. It wasn't long before Al and Dan became regulars. Al has never missed a nite, Dan just a 
-				couple, and me, well, I travel so I miss more than a few. We have gone out in the dead of winter (20 below) and faced 
-				the deadly mosquitoes in the heat of summer. We have added food from time to time, including the fresh kill from the 
-				hunters, Al and Dan. Some, like Tim the Teacher, are more fair weather garbage nite guys. Any and all the neighbors are 
-				welcome.
-			</p>
-			<p> 
-				<strong>Garbage Nite is a chance to stay connected with your neighbors, and a chance for us guys to just hang out.</strong> 
-				It can last for as little as 30 minutes to as much as 3 hours... once you are out, what's stopping you. And now, the 
-				recycling can take even more time... you tell the little woman that one, it works every time for an extra hour out. 
-				ALWAYS have something to drink... I can suggest some nice wines that pair perfectly with garbage. Leinenkugel's beer or 
-				an Oktoberfest ale in the fall are also wonderful ideas. And don't fret, for those that don't drink, a plain water will 
-				be just fine to give you that sociable feel of hanging out with the MEN.
-			</p>
-			<p> 
-				<span style="color: red; font-weight: bold;">Take Control! Start your own GarbageNite ...any night of the week!</span> 
-			</p>
-			<p> 
-				Get to know your neighbors, start up a local GarbageNite group. Let us know what you are doing at YOUR garbage nite (via email) and we'll add your own area to our website!  Check back often!  We will soon be offering GarbageNite apparel and stuff
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<SiteLayout>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">The original neighborhood tradition</p>
+        <h1>Take out the trash. Stay out a little longer.</h1>
+        <p>
+          Garbage Nite started as a simple weekly chore and became an excuse to
+          catch up with neighbors, crack open a drink, and turn the driveway
+          into a standing appointment.
+        </p>
+        <div class="hero-actions" aria-label="Primary links">
+          <a class="button" href="/archive">View the old photos</a>
+          <a class="button button-secondary" href="/nites">See into the Nite</a>
+        </div>
+      </div>
+      <div class="hero-media hero-logo">
+        <img src="/gn-logo-new.png" alt="Garbage Nite original logo" />
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div>
+        <p class="eyebrow">A bit of history</p>
+        <h2>What is Garbage Nite?</h2>
+      </div>
+      <div class="story-copy">
+        <p>
+          While living in California, Johnny was introduced to the weekly event
+          of moving trash cans out to the street. He had grown up in Montana
+          where there were alleys, and you just dumped your garbage in cans in
+          the dark alley and that was that. But there are few alleys in
+          California.
+        </p>
+        <p>
+          Before long, the neighbors would see each other outside, the beer and
+          wine would come out, and there it was: Garbage Nite. A chore became a
+          reason to stay connected.
+        </p>
+        <p>
+          The Minnesota version brought regulars, winter weather, mosquitoes,
+          food from time to time, and an open invitation. Any and all neighbors
+          were welcome.
+        </p>
+        <blockquote>
+          Garbage Nite is a chance to stay connected with your neighbors, and a
+          chance for the guys to just hang out.
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="photo-band" aria-labelledby="archive-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Original archive</p>
+        <h2 id="archive-heading">A look into the past.</h2>
+        <a href="/archive">Open the archive</a>
+      </div>
+      <div class="photo-grid">
+        {
+          featuredPhotos.map((photo) => (
+            <article class="photo-card">
+              <img src={photo.src} alt={photo.title} loading="lazy" />
+              <div>
+                <h3>{photo.title}</h3>
+                <p>{photo.caption}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="live-section" aria-labelledby="live-heading">
+      <div>
+        <p class="eyebrow">Coming next</p>
+        <h2 id="live-heading">Built for posts from the driveway later.</h2>
+        <p>
+          The refresh starts as a clean public archive, but the content is
+          already shaped for future posts and photo uploads from the guys during
+          Garbage Nite.
+        </p>
+      </div>
+      <div class="nite-list">
+        {
+          recentNites.map((nite) => (
+            <article>
+              <p>{nite.date}</p>
+              <h3>{nite.title}</h3>
+              <span>{nite.summary}</span>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</SiteLayout>
