@@ -1,0 +1,32 @@
+media:
+  path: public/uploads
+  url: /uploads
+
+content:
+  - name: nites
+    label: Nites
+    type: collection
+    path: src/content/nites
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: string
+        help: "e.g., 'Coming soon', 'Planned', or '2026-07-27'"
+      - name: summary
+        label: Summary
+        type: text
+      - name: photo
+        label: Photo Upload
+        type: image
+      - name: body
+        label: Post Content
+        type: rich-text
