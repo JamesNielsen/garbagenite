@@ -1,17 +1,32 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { recentNites } from "../content/site";
+import { getCollection } from "astro:content";
+
+const recentNites = await getCollection("nites");
+// Sort: Non-date strings (e.g. "Coming soon", "Planned") go to the top, then sort by date descending
+const sortedNites = recentNites.sort((a, b) => {
+  const dateA = new Date(a.data.date).getTime();
+  const dateB = new Date(b.data.date).getTime();
+  
+  const isAInvalid = isNaN(dateA);
+  const isBInvalid = isNaN(dateB);
+
+  if (isAInvalid && isBInvalid) return 0;
+  if (isAInvalid) return -1;
+  if (isBInvalid) return 1;
+  
+  return dateB - dateA;
+});
 ---
 
-<SiteLayout title="Nites" description="Future Garbage Nite posts and photo updates.">
+<SiteLayout title="Nites" description="Garbage Nite posts and photo updates from the driveway.">
   <main>
     <section class="page-intro">
-      <p class="eyebrow">Future posting area</p>
-      <h1>Posts from Garbage Nite will live here.</h1>
+      <p class="eyebrow">Driveway Updates</p>
+      <h1>Posts from Garbage Nite.</h1>
       <p>
-        For now this page is a placeholder with the right content shape. Later,
-        this can be backed by a small private posting flow for notes, captions,
-        and photo uploads while everyone is hanging out.
+        Straight from the driveway during our weekly gathering. This page is updated live 
+        from our phones.
       </p>
     </section>
 
@@ -19,16 +34,86 @@ import { recentNites } from "../content/site";
       <img src="/GN-weathered.png" alt="Weathered Garbage Nite sign" />
     </section>
 
-    <section class="nite-list nite-page-list">
-      {
-        recentNites.map((nite) => (
-          <article>
-            <p>{nite.date}</p>
-            <h2>{nite.title}</h2>
-            <span>{nite.summary}</span>
-          </article>
-        ))
-      }
-    </section>
+    {sortedNites.length === 0 ? (
+      <p class="no-posts">No posts yet. Stay tuned for the next Garbage Nite!</p>
+    ) : (
+      <section class="nite-list nite-page-list">
+        {
+          sortedNites.map((nite) => (
+            <article class="nite-card">
+              {nite.data.photo && (
+                <div class="nite-photo-wrapper">
+                  <img src={nite.data.photo} alt={nite.data.title} loading="lazy" />
+                </div>
+              )}
+              <div class="nite-card-content">
+                <p class="nite-date">{nite.data.date}</p>
+                <h2>{nite.data.title}</h2>
+                <span>{nite.data.summary}</span>
+              </div>
+            </article>
+          ))
+        }
+      </section>
+    )}
   </main>
 </SiteLayout>
+
+<style>
+  .nite-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper-strong);
+    box-shadow: 0 8px 24px rgba(32, 31, 27, 0.06);
+    margin-bottom: 24px;
+  }
+
+  .nite-photo-wrapper {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nite-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .nite-card-content {
+    padding: 24px;
+  }
+
+  .nite-date {
+    margin-bottom: 8px;
+    color: var(--blue);
+    font-size: 0.82rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .nite-card-content h2 {
+    margin: 0 0 12px;
+    font-size: 1.8rem;
+    color: var(--ink);
+  }
+
+  .nite-card-content span {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .no-posts {
+    padding: 32px;
+    text-align: center;
+    background: var(--paper-strong);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    color: var(--muted);
+  }
+</style>

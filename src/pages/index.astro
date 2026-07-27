@@ -1,8 +1,26 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
-import { archivePhotos, recentNites, site } from "../content/site";
+import { archivePhotos, site } from "../content/site";
+import { getCollection } from "astro:content";
 
 const featuredPhotos = archivePhotos.slice(0, 4);
+
+const recentNitesRaw = await getCollection("nites");
+const recentNites = recentNitesRaw
+  .sort((a, b) => {
+    const dateA = new Date(a.data.date).getTime();
+    const dateB = new Date(b.data.date).getTime();
+
+    const isAInvalid = isNaN(dateA);
+    const isBInvalid = isNaN(dateB);
+
+    if (isAInvalid && isBInvalid) return 0;
+    if (isAInvalid) return -1;
+    if (isBInvalid) return 1;
+
+    return dateB - dateA;
+  })
+  .slice(0, 2);
 ---
 
 <SiteLayout>
@@ -91,9 +109,9 @@ const featuredPhotos = archivePhotos.slice(0, 4);
         {
           recentNites.map((nite) => (
             <article>
-              <p>{nite.date}</p>
-              <h3>{nite.title}</h3>
-              <span>{nite.summary}</span>
+              <p>{nite.data.date}</p>
+              <h3>{nite.data.title}</h3>
+              <span>{nite.data.summary}</span>
             </article>
           ))
         }
