@@ -14,7 +14,8 @@ export const archivePhotos = [
   {
     src: "/Original/Al_2_2010.jpg",
     title: "Al",
-    caption: "One of the regulars. According to the old story, Al almost never missed a nite.",
+    caption:
+      "One of the regulars. According to the old story, Al almost never missed a nite.",
     year: "2010",
   },
   {
@@ -56,7 +57,8 @@ export const archivePhotos = [
   {
     src: "/Original/john.jpg",
     title: "Johnny",
-    caption: "The origin story starts with Johnny, trash cans, neighbors, and one more reason to stay outside.",
+    caption:
+      "The origin story starts with Johnny, trash cans, neighbors, and one more reason to stay outside.",
     year: "Original archive",
   },
 ];
