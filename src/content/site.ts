@@ -62,18 +62,3 @@ export const archivePhotos = [
     year: "Original archive",
   },
 ];
-
-export const recentNites = [
-  {
-    title: "First Nite Out",
-    date: "Coming soon",
-    summary:
-      "This section is ready for future posts from the driveway: notes, photos, captions, and whatever happened that week.",
-  },
-  {
-    title: "Photo uploads",
-    date: "Planned",
-    summary:
-      "The public site is static for now, but the content shape is ready for a small posting flow later.",
-  },
-];
