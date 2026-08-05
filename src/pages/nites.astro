@@ -36,12 +36,15 @@ const sortedNites = recentNites.sort((a, b) => {
 
     <div class="nite-logo-feature">
       <img src="/GN-weathered.png" alt="Weathered Garbage Nite sign" />
-      <a
-        class="button nite-album-link"
-        href="https://photos.app.goo.gl/h3fWaFNNz6xKgQT9A"
-        target="_blank"
-        rel="noreferrer">View the photo album</a
-      >
+      <div class="nite-actions">
+        <a
+          class="button"
+          href="https://photos.app.goo.gl/h3fWaFNNz6xKgQT9A"
+          target="_blank"
+          rel="noreferrer">View the photo album</a
+        >
+        <a class="button" href="/admin">Create Post</a>
+      </div>
     </div>
 
     {
@@ -78,7 +81,10 @@ const sortedNites = recentNites.sort((a, b) => {
     margin-bottom: 24px;
   }
 
-  .nite-album-link {
+  .nite-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-top: 16px;
   }
 
