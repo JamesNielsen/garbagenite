@@ -326,6 +326,22 @@ blockquote {
   padding: 72px 0 42px;
 }
 
+.archive-intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+}
+
+.archive-intro .page-intro {
+  flex: 1 1 0;
+}
+
+.archive-intro-image {
+  flex: 0 0 auto;
+  width: 250px;
+}
+
 .original-note {
   margin-top: 42px;
   margin-bottom: 42px;
@@ -437,6 +453,19 @@ blockquote {
 
   .hero {
     padding-top: 36px;
+  }
+
+  .archive-intro {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .archive-intro .page-intro {
+    padding-bottom: 24px;
+  }
+
+  .archive-intro-image {
+    width: min(250px, 75vw);
   }
 
   .photo-grid,
