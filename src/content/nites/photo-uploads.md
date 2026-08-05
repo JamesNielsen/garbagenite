@@ -1,7 +1,7 @@
 ---
-title: "Photo uploads"
-date: "Planned"
-summary: "The public site is static for now, but the content shape is ready for a small posting flow later."
+title: "Shared photo album"
+date: "2026-08-05"
+summary: "New Garbage Nite photos now live together in our shared Google Photos album."
 ---
 
-We have configured PagesCMS to allow easy photo uploads straight from your phone's camera roll while standing in the driveway.
+We use PagesCMS for posts from the driveway and keep the photos together in our shared Google Photos album.

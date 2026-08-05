@@ -7,7 +7,6 @@ const nites = defineCollection({
     title: z.string(),
     date: z.string(),
     summary: z.string(),
-    photo: z.string().optional(),
   }),
 });
 

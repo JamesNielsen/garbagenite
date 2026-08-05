@@ -7,55 +7,62 @@ const recentNites = await getCollection("nites");
 const sortedNites = recentNites.sort((a, b) => {
   const dateA = new Date(a.data.date).getTime();
   const dateB = new Date(b.data.date).getTime();
-  
+
   const isAInvalid = isNaN(dateA);
   const isBInvalid = isNaN(dateB);
 
   if (isAInvalid && isBInvalid) return 0;
   if (isAInvalid) return -1;
   if (isBInvalid) return 1;
-  
+
   return dateB - dateA;
 });
 ---
 
-<SiteLayout title="Nites" description="Garbage Nite posts and photo updates from the driveway.">
+<SiteLayout
+  title="Nites"
+  description="Garbage Nite posts from the driveway and a shared photo album."
+>
   <main>
     <section class="page-intro">
       <p class="eyebrow">Driveway Updates</p>
       <h1>Posts from Garbage Nite.</h1>
       <p>
-        Straight from the driveway during our weekly gathering. This page is updated live 
-        from our phones.
+        Straight from the driveway during our weekly gathering. Posts are
+        updated from our phones, and the photos live together in our shared
+        album.
       </p>
     </section>
 
-    <section class="nite-logo-feature" aria-label="New Garbage Nite logo">
+    <div class="nite-logo-feature">
       <img src="/GN-weathered.png" alt="Weathered Garbage Nite sign" />
-    </section>
+      <a
+        class="button nite-album-link"
+        href="https://photos.app.goo.gl/h3fWaFNNz6xKgQT9A"
+        target="_blank"
+        rel="noreferrer">View the photo album</a
+      >
+    </div>
 
-    {sortedNites.length === 0 ? (
-      <p class="no-posts">No posts yet. Stay tuned for the next Garbage Nite!</p>
-    ) : (
-      <section class="nite-list nite-page-list">
-        {
-          sortedNites.map((nite) => (
+    {
+      sortedNites.length === 0 ? (
+        <p class="no-posts">
+          No posts yet. Stay tuned for the next Garbage Nite!
+        </p>
+      ) : (
+        <section class="nite-list nite-page-list">
+          {sortedNites.map((nite) => (
             <article class="nite-card">
-              {nite.data.photo && (
-                <div class="nite-photo-wrapper">
-                  <img src={nite.data.photo} alt={nite.data.title} loading="lazy" />
-                </div>
-              )}
               <div class="nite-card-content">
                 <p class="nite-date">{nite.data.date}</p>
                 <h2>{nite.data.title}</h2>
                 <span>{nite.data.summary}</span>
               </div>
             </article>
-          ))
-        }
-      </section>
-    )}
+          ))}
+        </section>
+      )
+    }
   </main>
 </SiteLayout>
 
@@ -71,17 +78,8 @@ const sortedNites = recentNites.sort((a, b) => {
     margin-bottom: 24px;
   }
 
-  .nite-photo-wrapper {
-    width: 100%;
-    max-height: 480px;
-    overflow: hidden;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .nite-photo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .nite-album-link {
+    margin-top: 16px;
   }
 
   .nite-card-content {
