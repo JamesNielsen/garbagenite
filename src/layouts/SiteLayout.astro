@@ -19,7 +19,9 @@ const pageTitle = title === site.title ? site.title : `${title} | ${site.title}`
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
+    <!-- Optional but highly recommended: modern PNG favicon for high-res screens -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{pageTitle}</title>
   </head>
   <body>
