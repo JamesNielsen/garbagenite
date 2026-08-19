@@ -125,19 +125,21 @@ import { archivePhotos } from "../content/site";
       <div class="this-week-grid">
         <!-- Golf Outing Card -->
         <article class="this-week-card golf-card">
-          <div class="card-content">
-            <span class="card-tag">Special Event</span>
-            <h3>1st Annual Golf Outing</h3>
-            <p>
-              We played the 1st annual GarbageNite Golf Outing featuring Al, John, Tim, Darren, Scott, and Chris.
-              In the end, no one asked about the score so we must have had fun!
-            </p>
-            <p class="note">
-              <strong>Highlight:</strong> Chris hit into John twice. The second time hit John's bag!
-            </p>
-          </div>
-          <div class="golf-gallery">
-            <img src="/Original/Golfhole_02_june.gif" alt="Animated golf hole" loading="lazy" class="golf-gif" />
+          <div class="golf-card-body">
+            <div class="card-content">
+              <span class="card-tag">Special Event</span>
+              <h3>1st Annual Golf Outing</h3>
+              <p>
+                We played the 1st annual GarbageNite Golf Outing featuring Al, John, Tim, Darren, Scott, and Chris.
+                In the end, no one asked about the score so we must have had fun!
+              </p>
+              <p class="note">
+                <strong>Highlight:</strong> Chris hit into John twice. The second time hit John's bag!
+              </p>
+            </div>
+            <div class="golf-media">
+              <img src="/Original/Golfhole_02_june.gif" alt="Animated golf hole" loading="lazy" class="golf-gif" />
+            </div>
           </div>
         </article>
 
@@ -187,7 +189,7 @@ import { archivePhotos } from "../content/site";
       <!-- Classic Humour Details Accordion -->
       <div class="jokes-section">
         <h3>Driveway Humor &amp; Email Chains</h3>
-        <p class="jokes-intro">Classic jokes, Ole &amp; Lena tales, and trivia shared around the trash cans in 2014.</p>
+        <p class="jokes-intro">Classic jokes, Ole &amp; Lena tales, and trivia shared around the trash can.</p>
 
         <div class="jokes-grid">
           <details class="joke-details">
@@ -400,7 +402,15 @@ import { archivePhotos } from "../content/site";
     overflow: hidden;
   }
 
+  .golf-card-body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: stretch;
+  }
+
   .golf-card .card-content {
+    flex: 1;
     padding: 24px;
   }
 
@@ -428,12 +438,13 @@ import { archivePhotos } from "../content/site";
     border-radius: 0 4px 4px 0;
   }
 
-  .golf-gallery {
+  .golf-media {
+    flex: 0 0 140px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 24px;
-    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
     background: var(--paper);
   }
 
@@ -666,6 +677,15 @@ import { archivePhotos } from "../content/site";
     }
     .golf-card {
       grid-column: span 1;
+    }
+    .golf-card-body {
+      flex-direction: column;
+    }
+    .golf-media {
+      border-left: none;
+      border-top: 1px solid var(--line);
+      flex: 0 0 auto;
+      padding: 16px;
     }
     .jokes-grid {
       grid-template-columns: 1fr;
