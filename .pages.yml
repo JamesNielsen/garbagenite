@@ -20,6 +20,48 @@ content:
       - name: summary
         label: Summary
         type: text
+      - name: specialEvents
+        label: Special Events
+        type: object
+        list: true
+        required: false
+        fields:
+          - name: title
+            label: Event Title
+            type: string
+          - name: description
+            label: Event Details
+            type: text
+          - name: highlight
+            label: Highlight
+            type: text
+            required: false
+      - name: topics
+        label: Topics of the Week
+        type: string
+        list: true
+        required: false
+      - name: drinks
+        label: Drinks of the Week
+        type: string
+        list: true
+        required: false
+      - name: movieReviews
+        label: Driveway Movie Reviews
+        type: object
+        list: true
+        required: false
+        fields:
+          - name: movie
+            label: Movie
+            type: string
+          - name: rating
+            label: Rating
+            type: string
+          - name: review
+            label: Review
+            type: text
       - name: body
-        label: Post Content
+        label: Additional Notes
         type: rich-text
+        required: false

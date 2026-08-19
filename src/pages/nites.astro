@@ -17,6 +17,14 @@ const sortedNites = recentNites.sort((a, b) => {
 
   return dateB - dateA;
 });
+
+const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
+  Boolean(
+    nite.data.specialEvents?.length ||
+    nite.data.topics?.length ||
+    nite.data.drinks?.length ||
+    nite.data.movieReviews?.length,
+  );
 ---
 
 <SiteLayout
@@ -27,9 +35,7 @@ const sortedNites = recentNites.sort((a, b) => {
     <section class="page-intro">
       <p class="eyebrow">Driveway Updates</p>
       <h1>Posts from Garbage Nite.</h1>
-      <p>
-        Straight from the driveway during our weekly gathering.
-      </p>
+      <p>Straight from the driveway during our weekly gathering.</p>
     </section>
 
     <div class="nite-logo-feature">
@@ -53,12 +59,81 @@ const sortedNites = recentNites.sort((a, b) => {
       ) : (
         <section class="nite-list nite-page-list">
           {sortedNites.map((nite) => (
-            <article class="nite-card">
-              <div class="nite-card-content">
+            <article
+              class:list={[
+                "nite-card",
+                { "nite-card-structured": hasStructuredSections(nite) },
+              ]}
+            >
+              <header class="nite-card-content">
                 <p class="nite-date">{nite.data.date}</p>
                 <h2>{nite.data.title}</h2>
-                <span>{nite.data.summary}</span>
-              </div>
+                <p class="nite-summary">{nite.data.summary}</p>
+              </header>
+
+              {hasStructuredSections(nite) && (
+                <div class="nite-sections">
+                  {nite.data.specialEvents?.length ? (
+                    <section class="nite-section special-events-card">
+                      <h3>Special Events</h3>
+                      {nite.data.specialEvents.map((event) => (
+                        <div class="special-event">
+                          <h4>{event.title}</h4>
+                          <p>{event.description}</p>
+                          {event.highlight && (
+                            <p class="event-highlight">
+                              <strong>Highlight:</strong> {event.highlight}
+                            </p>
+                          )}
+                        </div>
+                      ))}
+                    </section>
+                  ) : null}
+
+                  {(nite.data.topics?.length || nite.data.drinks?.length) && (
+                    <div class="nite-section-column">
+                      {nite.data.topics?.length ? (
+                        <section class="nite-section topics-card">
+                          <h3>Topics of the Week</h3>
+                          <ul>
+                            {nite.data.topics.map((topic) => (
+                              <li>{topic}</li>
+                            ))}
+                          </ul>
+                        </section>
+                      ) : null}
+
+                      {nite.data.drinks?.length ? (
+                        <section class="nite-section drinks-card">
+                          <div class="drinks-background">
+                            <h3>Drinks of the Week</h3>
+                            <ul>
+                              {nite.data.drinks.map((drink) => (
+                                <li>{drink}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </section>
+                      ) : null}
+                    </div>
+                  )}
+
+                  {nite.data.movieReviews?.length ? (
+                    <section class="nite-section reviews-card">
+                      <h3>Driveway Movie Reviews</h3>
+                      {nite.data.movieReviews.map((movieReview) => (
+                        <div class="review-item">
+                          <div class="review-header">
+                            <h4>{movieReview.movie}</h4>
+                            <span class="rating">{movieReview.rating}</span>
+                          </div>
+                          <p>&ldquo;{movieReview.review}&rdquo;</p>
+                        </div>
+                      ))}
+                    </section>
+                  ) : null}
+                </div>
+              )}
             </article>
           ))}
         </section>
@@ -104,10 +179,173 @@ const sortedNites = recentNites.sort((a, b) => {
     color: var(--ink);
   }
 
-  .nite-card-content span {
+  .nite-summary {
+    margin: 0;
     color: var(--muted);
     font-size: 1rem;
     line-height: 1.6;
+  }
+
+  .nite-card-structured {
+    padding-bottom: 24px;
+  }
+
+  .nite-sections {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 24px;
+    padding: 0 24px;
+  }
+
+  .nite-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper-strong);
+    box-shadow: 0 8px 30px rgba(32, 31, 27, 0.05);
+  }
+
+  .nite-section h3 {
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--line);
+    color: var(--ink);
+    font-family: Georgia, serif;
+    font-size: 1.4rem;
+  }
+
+  .nite-section h4 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+  }
+
+  .nite-section p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .special-event + .special-event {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .special-event .event-highlight {
+    margin-top: 12px;
+    padding: 10px;
+    border-left: 3px solid var(--rust);
+    border-radius: 0 4px 4px 0;
+    background: rgba(167, 72, 39, 0.05);
+    color: var(--ink);
+  }
+
+  .nite-section-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .topics-card ul,
+  .drinks-card ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .topics-card li {
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .drinks-card {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .drinks-background {
+    height: 100%;
+    padding: 24px;
+    background-image:
+      linear-gradient(rgba(32, 31, 27, 0.85), rgba(32, 31, 27, 0.85)),
+      url("/Original/GN_Bar.jpg");
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+  }
+
+  .drinks-background h3 {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
+  .drinks-card li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  .review-item {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .review-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .review-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .review-header h4 {
+    margin: 0;
+  }
+
+  .rating {
+    flex: 0 0 auto;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #e2d9cc;
+    color: var(--ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .reviews-card .review-item p {
+    font-style: italic;
+  }
+
+  @media (max-width: 1024px) {
+    .nite-sections {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .special-events-card {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nite-sections {
+      grid-template-columns: 1fr;
+    }
+
+    .special-events-card {
+      grid-column: span 1;
+    }
   }
 
   .no-posts {
