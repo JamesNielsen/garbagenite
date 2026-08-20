@@ -273,7 +273,7 @@ blockquote {
 .nite-list article > p,
 .archive-card div > p {
   margin-bottom: 8px;
-  color: var(--blue);
+  color: var(--rust);
   font-size: 0.82rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -399,16 +399,18 @@ blockquote {
 }
 
 .nite-page-list {
-  max-width: 760px;
+  width: 100%;
 }
 
 .nite-logo-feature {
-  max-width: 900px;
-  margin-bottom: 36px;
+  width: min(900px, 100%);
+  margin: 0 auto 36px;
 }
 
 .nite-logo-feature img {
+  display: block;
   width: 100%;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
