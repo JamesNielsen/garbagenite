@@ -403,12 +403,14 @@ blockquote {
 }
 
 .nite-logo-feature {
-  max-width: 900px;
-  margin-bottom: 36px;
+  width: min(900px, 100%);
+  margin: 0 auto 36px;
 }
 
 .nite-logo-feature img {
+  display: block;
   width: 100%;
+  height: auto;
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
