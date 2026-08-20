@@ -399,7 +399,7 @@ blockquote {
 }
 
 .nite-page-list {
-  max-width: 760px;
+  width: 100%;
 }
 
 .nite-logo-feature {
