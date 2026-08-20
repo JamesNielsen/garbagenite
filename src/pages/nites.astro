@@ -58,92 +58,95 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
         </p>
       ) : (
         <section class="nite-list nite-page-list">
-          {sortedNites.map((nite) => (
-            <article
-              class:list={[
-                "nite-card",
-                { "nite-card-structured": hasStructuredSections(nite) },
-              ]}
-            >
-              <header class="nite-card-content">
-                <p class="nite-date">
-                  {nite.data.date.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </p>
-                <h2>{nite.data.title}</h2>
-                <p class="nite-attendees">
-                  <strong>Attendees:</strong>
-                  {nite.data.attendees}
-                </p>
-              </header>
+          {sortedNites.map((nite, index) => (
+            <>
+              {index > 0 && <hr class="nite-divider" />}
+              <article
+                class:list={[
+                  "nite-card",
+                  { "nite-card-structured": hasStructuredSections(nite) },
+                ]}
+              >
+                <header class="nite-card-content">
+                  <p class="nite-date">
+                    {nite.data.date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <h2>{nite.data.title}</h2>
+                  <p class="nite-attendees">
+                    <strong>Attendees:</strong>
+                    {nite.data.attendees}
+                  </p>
+                </header>
 
-              {hasStructuredSections(nite) && (
-                <div class="nite-sections">
-                  {nite.data.specialEvents?.length ? (
-                    <section class="nite-section special-events-card">
-                      <h3>Special Events</h3>
-                      {nite.data.specialEvents.map((event) => (
-                        <div class="special-event">
-                          <h4>{event.title}</h4>
-                          <p>{event.description}</p>
-                          {event.highlight && (
-                            <p class="event-highlight">
-                              <strong>Highlight:</strong> {event.highlight}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </section>
-                  ) : null}
+                {hasStructuredSections(nite) && (
+                  <div class="nite-sections">
+                    {nite.data.specialEvents?.length ? (
+                      <section class="nite-section special-events-card">
+                        <h3>Special Events</h3>
+                        {nite.data.specialEvents.map((event) => (
+                          <div class="special-event">
+                            <h4>{event.title}</h4>
+                            <p>{event.description}</p>
+                            {event.highlight && (
+                              <p class="event-highlight">
+                                <strong>Highlight:</strong> {event.highlight}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </section>
+                    ) : null}
 
-                  {(nite.data.topics?.length || nite.data.drinks?.length) && (
-                    <div class="nite-section-column">
-                      {nite.data.topics?.length ? (
-                        <section class="nite-section topics-card">
-                          <h3>Topics of the Week</h3>
-                          <ul>
-                            {nite.data.topics.map((topic) => (
-                              <li>{topic}</li>
-                            ))}
-                          </ul>
-                        </section>
-                      ) : null}
-
-                      {nite.data.drinks?.length ? (
-                        <section class="nite-section drinks-card">
-                          <div class="drinks-background">
-                            <h3>Drinks of the Week</h3>
+                    {(nite.data.topics?.length || nite.data.drinks?.length) && (
+                      <div class="nite-section-column">
+                        {nite.data.topics?.length ? (
+                          <section class="nite-section topics-card">
+                            <h3>Topics of the Week</h3>
                             <ul>
-                              {nite.data.drinks.map((drink) => (
-                                <li>{drink}</li>
+                              {nite.data.topics.map((topic) => (
+                                <li>{topic}</li>
                               ))}
                             </ul>
-                          </div>
-                        </section>
-                      ) : null}
-                    </div>
-                  )}
+                          </section>
+                        ) : null}
 
-                  {nite.data.movieReviews?.length ? (
-                    <section class="nite-section reviews-card">
-                      <h3>Driveway Movie Reviews</h3>
-                      {nite.data.movieReviews.map((movieReview) => (
-                        <div class="review-item">
-                          <div class="review-header">
-                            <h4>{movieReview.movie}</h4>
-                            <span class="rating">{movieReview.rating}</span>
+                        {nite.data.drinks?.length ? (
+                          <section class="nite-section drinks-card">
+                            <div class="drinks-background">
+                              <h3>Drinks of the Week</h3>
+                              <ul>
+                                {nite.data.drinks.map((drink) => (
+                                  <li>{drink}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </section>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {nite.data.movieReviews?.length ? (
+                      <section class="nite-section reviews-card">
+                        <h3>Driveway Movie Reviews</h3>
+                        {nite.data.movieReviews.map((movieReview) => (
+                          <div class="review-item">
+                            <div class="review-header">
+                              <h4>{movieReview.movie}</h4>
+                              <span class="rating">{movieReview.rating}</span>
+                            </div>
+                            <p>&ldquo;{movieReview.review}&rdquo;</p>
                           </div>
-                          <p>&ldquo;{movieReview.review}&rdquo;</p>
-                        </div>
-                      ))}
-                    </section>
-                  ) : null}
-                </div>
-              )}
-            </article>
+                        ))}
+                      </section>
+                    ) : null}
+                  </div>
+                )}
+              </article>
+            </>
           ))}
         </section>
       )
@@ -152,6 +155,10 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
 </SiteLayout>
 
 <style>
+  .nite-page-list {
+    gap: 0;
+  }
+
   .nite-card {
     display: flex;
     flex-direction: column;
@@ -160,7 +167,15 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
     border-radius: 8px;
     background: var(--paper-strong);
     box-shadow: 0 8px 24px rgba(32, 31, 27, 0.06);
-    margin-bottom: 24px;
+    margin-bottom: 0;
+  }
+
+  .nite-divider {
+    width: 100%;
+    height: 1px;
+    margin: 80px 0;
+    border: 0;
+    background: var(--line);
   }
 
   .nite-actions {
@@ -205,7 +220,7 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
   }
 
   .nite-card-structured {
-    padding: 0 0 80px;
+    padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
