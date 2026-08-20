@@ -35,8 +35,8 @@ const recentNites = recentNitesRaw
           into a standing appointment.
         </p>
         <div class="hero-actions" aria-label="Primary links">
-          <a class="button" href="/archive">View the old photos</a>
-          <a class="button button-secondary" href="/nites">See into the Nite</a>
+          <a class="button" href="/archive">View the archives</a>
+          <a class="button" href="/nites">See into the Nite</a>
         </div>
       </div>
       <div class="hero-media hero-logo">
@@ -108,9 +108,9 @@ const recentNites = recentNitesRaw
         {
           recentNites.map((nite) => (
             <article>
-              <p>{nite.data.date}</p>
+              <p>{nite.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", })}</p>
               <h3>{nite.data.title}</h3>
-              <span>{nite.data.summary}</span>
+              <span><strong>Attendees:</strong>{nite.data.attendees}</span>
             </article>
           ))
         }

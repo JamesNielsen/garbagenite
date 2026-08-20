@@ -273,7 +273,7 @@ blockquote {
 .nite-list article > p,
 .archive-card div > p {
   margin-bottom: 8px;
-  color: var(--blue);
+  color: var(--rust);
   font-size: 0.82rem;
   font-weight: 900;
   text-transform: uppercase;
