@@ -7,7 +7,7 @@ const nites = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    summary: z.string(),
+    attendees: z.string(),
     specialEvents: z
       .array(
         z.object({

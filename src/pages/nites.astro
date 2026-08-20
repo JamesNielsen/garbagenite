@@ -66,8 +66,9 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
               ]}
             >
               <header class="nite-card-content">
-                <p class="nite-date">{nite.data.date}</p>
+                <p class="nite-date">{nite.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</p>
                 <h2>{nite.data.title}</h2>
+                <p class="nite-attendees"><strong>Attendees:</strong>{nite.data.attendees}</p>
                 <p class="nite-summary">{nite.data.summary}</p>
               </header>
 
@@ -166,24 +167,31 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
   }
 
   .nite-date {
-    margin-bottom: 8px;
-    color: var(--blue);
-    font-size: 0.82rem;
+    margin-bottom: 12px;
+    color: var(--rust);
+    font-size: 0.78rem;
     font-weight: 900;
+    text-align: center;
     text-transform: uppercase;
   }
 
   .nite-card-content h2 {
     margin: 0 0 12px;
     font-size: 1.8rem;
+    font-family: Georgia, serif;
     color: var(--ink);
+    text-align: center;
   }
 
-  .nite-summary {
-    margin: 0;
+  .nite-attendees {
+    display: inline-flex;
+    background: var(--paper-strong);
+    border: 1px solid var(--line);
+    padding: 10px 20px;
+    border-radius: 99px;
+    font-size: 0.95rem;
     color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(32, 31, 27, 0.04);
   }
 
   .nite-card-structured {
