@@ -104,13 +104,13 @@ const recentNites = recentNitesRaw
           to the shared Google Photos album for pictures from the driveway.
         </p>
       </div>
-      <div class="nite-list">
+      <div class="nite-list"><a href="nites-section"></a>
         {
           recentNites.map((nite) => (
             <article>
               <p>{nite.data.date}</p>
               <h3>{nite.data.title}</h3>
-              <span>{nite.data.summary}</span>
+              <span>{nite.data.attendees}</span>
             </article>
           ))
         }
