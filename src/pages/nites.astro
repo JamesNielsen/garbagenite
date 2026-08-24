@@ -38,7 +38,7 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
       <p>Straight from the driveway during our weekly gathering.</p>
     </section>
 
-    <div class="nite-logo-feature">
+    <div id="nites-section" class="nite-logo-feature">
       <img src="/GN-weathered.png" alt="Weathered Garbage Nite sign" />
       <div class="nite-actions">
         <a
@@ -57,7 +57,7 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
           No posts yet. Stay tuned for the next Garbage Nite!
         </p>
       ) : (
-        <section id="nites-section" class="nite-list nite-page-list">
+        <section class="nite-list nite-page-list">
           {sortedNites.map((nite, index) => (
             <>
               {index > 0 && <hr class="nite-divider" />}
