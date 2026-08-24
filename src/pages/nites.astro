@@ -57,7 +57,7 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
           No posts yet. Stay tuned for the next Garbage Nite!
         </p>
       ) : (
-        <section class="nite-list nite-page-list">
+        <section id="nites-section" class="nite-list nite-page-list">
           {sortedNites.map((nite, index) => (
             <>
               {index > 0 && <hr class="nite-divider" />}
