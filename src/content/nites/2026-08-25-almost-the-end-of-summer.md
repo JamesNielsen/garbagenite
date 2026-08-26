@@ -6,6 +6,7 @@ topics:
   - "Dreaming about quantum physics "
   - How we all sleep
   - Dolly Died
+  - State Fair starts this week
 drinks:
   - Wild State
   - Coors Light
