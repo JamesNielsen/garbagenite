@@ -5,6 +5,7 @@ attendees: Al, Tim, Shawn, Dan, Matt & James
 topics:
   - "Dreaming about quantum physics "
   - How we all sleep
+  - Dolly Died
 drinks:
   - Wild State
   - Coors Light
