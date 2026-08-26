@@ -1,5 +1,5 @@
 ---
-title: "Almost the end of summer "
+title: "Almost the End of Summer "
 date: 2026-08-25
 attendees: Al, Tim, Shawn, Dan, Matt & James
 topics:
