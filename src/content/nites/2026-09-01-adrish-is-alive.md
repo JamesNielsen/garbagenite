@@ -21,4 +21,5 @@ drinks:
   - Wild State
   - Head Flyer
   - Kona Bigwave
+  - Ursa side quest
 ---
