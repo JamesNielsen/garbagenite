@@ -10,6 +10,7 @@ topics:
   - Adrish, that bastard, is leaving us
   - Rick keeps telling old man stories
   - "Twins win big "
+  - Johnny finally called us
 drinks:
   - Coors Light
   - Hazy Little Thing
