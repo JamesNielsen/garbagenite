@@ -14,4 +14,11 @@ drinks:
   - Coors Light
   - Hazy Little Thing
   - It was all a dream
+  - Fireball
+  - Fresh Squeezed
+  - Busch Light
+  - MicGolden
+  - Wild State
+  - Head Flyer
+  - Kona Bigwave
 ---
