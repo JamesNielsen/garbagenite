@@ -84,24 +84,20 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
 
                 {hasStructuredSections(nite) && (
                   <div class="nite-sections">
-                    {nite.data.specialEvents?.length ? (
-                      <section class="nite-section special-events-card">
-                        <h3>Special Events</h3>
-                        {nite.data.specialEvents.map((event) => (
-                          <div class="special-event">
-                            <h4>{event.title}</h4>
-                            <p>{event.description}</p>
-                            {event.highlight && (
-                              <p class="event-highlight">
-                                <strong>Highlight:</strong> {event.highlight}
-                              </p>
-                            )}
-                          </div>
-                        ))}
+                    {nite.data.drinks?.length ? (
+                      <section class="nite-section drinks-card">
+                        <div class="drinks-background">
+                          <h3>Drinks of the Week</h3>
+                          <ul>
+                            {nite.data.drinks.map((drink) => (
+                              <li>{drink}</li>
+                            ))}
+                          </ul>
+                        </div>
                       </section>
                     ) : null}
 
-                    {(nite.data.topics?.length || nite.data.drinks?.length) && (
+                    {(nite.data.topics?.length || nite.data.specialEvents?.length) && (
                       <div class="nite-section-column">
                         {nite.data.topics?.length ? (
                           <section class="nite-section topics-card">
@@ -114,16 +110,20 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
                           </section>
                         ) : null}
 
-                        {nite.data.drinks?.length ? (
-                          <section class="nite-section drinks-card">
-                            <div class="drinks-background">
-                              <h3>Drinks of the Week</h3>
-                              <ul>
-                                {nite.data.drinks.map((drink) => (
-                                  <li>{drink}</li>
-                                ))}
-                              </ul>
-                            </div>
+                        {nite.data.specialEvents?.length ? (
+                          <section class="nite-section special-events-card">
+                            <h3>Special Events</h3>
+                            {nite.data.specialEvents.map((event) => (
+                              <div class="special-event">
+                                <h4>{event.title}</h4>
+                                <p>{event.description}</p>
+                                {event.highlight && (
+                                  <p class="event-highlight">
+                                    <strong>Highlight:</strong> {event.highlight}
+                                  </p>
+                                )}
+                              </div>
+                            ))}
                           </section>
                         ) : null}
                       </div>
@@ -380,9 +380,6 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
       grid-template-columns: 1fr 1fr;
     }
 
-    .special-events-card {
-      grid-column: span 2;
-    }
   }
 
   @media (max-width: 768px) {
@@ -390,9 +387,6 @@ const hasStructuredSections = (nite: (typeof sortedNites)[number]) =>
       grid-template-columns: 1fr;
     }
 
-    .special-events-card {
-      grid-column: span 1;
-    }
   }
 
   .no-posts {
