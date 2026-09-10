@@ -21,5 +21,4 @@ movieReviews:
   - movie: Mayday
     rating: 9/10
     review: "Super funny Ryan Renolds flick. "
-  - {}
 ---
