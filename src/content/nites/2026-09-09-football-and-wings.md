@@ -7,7 +7,7 @@ topics:
   - "Yellow Jackets on HBO - Soccer team tragedy "
   - Good dog movies
 drinks:
-  - "Coors "
+  - Coors Light
   - Miller Lite
   - Schell’s Octoberfest
   - X-Hero
