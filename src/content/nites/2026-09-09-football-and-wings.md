@@ -5,6 +5,7 @@ attendees: Al, Dan, Tim , Shawn, Matt, James and Kelly
 topics:
   - First regular season football game. Patriots at the Seahawks
   - "Yellow Jackets on HBO - Soccer team tragedy "
+  - Good dog movies
 drinks:
   - "Coors "
   - Miller Lite
