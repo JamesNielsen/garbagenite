@@ -4,6 +4,7 @@ date: 2026-09-09
 attendees: Al, Dan, Tim , Shawn, Matt, James and Kelly
 topics:
   - First regular season football game. Patriots at the Seahawks
+  - "Yellow Jackets on HBO - Soccer team tragedy "
 drinks:
   - "Coors "
   - Miller Lite
@@ -19,4 +20,5 @@ movieReviews:
   - movie: Mayday
     rating: 9/10
     review: "Super funny Ryan Renolds flick. "
+  - {}
 ---
