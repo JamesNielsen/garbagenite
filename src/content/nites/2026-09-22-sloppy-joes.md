@@ -2,8 +2,8 @@
 title: Sloppy Joes!
 date: 2026-09-22
 attendees: Al, Dan, Tim, James, Shawn, Matt and Andy
-specialEvents:
-  - title: Matt brought sloppy joes!
+topics:
+  - Matt brought Sloppy Joes!
 drinks:
   - Coors Light
   - "Coors Banquet "
