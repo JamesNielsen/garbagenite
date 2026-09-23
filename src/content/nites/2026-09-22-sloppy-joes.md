@@ -4,6 +4,8 @@ date: 2026-09-22
 attendees: Al, Dan, Tim, James, Shawn, Matt, Andy and Darren
 topics:
   - Matt brought Sloppy Joes!
+  - "Gateway fiber coming to the neighborhood "
+  - "Twins win! "
 drinks:
   - Coors Light
   - "Coors Banquet "
