@@ -15,4 +15,5 @@ drinks:
   - Dogfish head
   - MC ²
   - Miller Highlife Light
+  - "Mental Projection "
 ---
