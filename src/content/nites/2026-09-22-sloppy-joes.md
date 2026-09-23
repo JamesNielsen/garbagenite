@@ -14,4 +14,5 @@ drinks:
   - Miller Lite
   - Dogfish head
   - MC ²
+  - Miller Highlife Light
 ---
