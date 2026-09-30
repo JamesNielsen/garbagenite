@@ -4,6 +4,8 @@ date: 2026-09-29
 attendees: Al, Dan, Tim, Shawn, James and Matt
 topics:
   - Jalapeño Poppers!
+  - "The weather "
+  - "Gun Safety "
 drinks:
   - Coors Light
   - Odder
