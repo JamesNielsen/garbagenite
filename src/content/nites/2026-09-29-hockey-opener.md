@@ -15,4 +15,5 @@ drinks:
   - Busch Light
   - Lagunitas IPA
   - Ichobod Pumpkin Ale
+  - Tropical Hazy IPA
 ---
