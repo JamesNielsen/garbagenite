@@ -13,4 +13,6 @@ drinks:
   - Foggy Geezer
   - Lagunitas Easy Hazy
   - Busch Light
+  - Lagunitas IPA
+  - Ichobod Pumpkin Ale
 ---
