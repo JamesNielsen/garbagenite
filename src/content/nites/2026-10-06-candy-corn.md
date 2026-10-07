@@ -21,4 +21,5 @@ drinks:
   - "Coors Banquet "
   - Miller Lite
   - Wild State
+  - Voodoo Ranger Slasher IPA
 ---
