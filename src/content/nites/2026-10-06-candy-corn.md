@@ -23,4 +23,5 @@ drinks:
   - Wild State
   - Voodoo Ranger Slasher IPA
   - Fireball
+  - Voodoo Ranger Citrus Slayer
 ---
