@@ -19,4 +19,6 @@ drinks:
   - Schells Octoberfest
   - Ultra
   - "Coors Banquet "
+  - Miller Lite
+  - Wild State
 ---
