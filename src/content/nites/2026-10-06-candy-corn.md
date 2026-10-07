@@ -24,4 +24,5 @@ drinks:
   - Voodoo Ranger Slasher IPA
   - Fireball
   - Voodoo Ranger Citrus Slayer
+  - Smirnoff Ice Zero
 ---
