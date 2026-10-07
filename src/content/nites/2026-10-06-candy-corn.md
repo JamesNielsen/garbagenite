@@ -1,7 +1,7 @@
 ---
 title: Candy Corn
 date: 2026-10-06
-attendees: Al, Dan, Tim, Shawn, Matt, Matt and Johnny!
+attendees: Al, Dan, Tim, Shawn, Matt, Matt, Johnny and Adrish!
 specialEvents:
   - title: Chili Cook off
     description: "Dan’s backyard at 4. Bring a chili for the competition. "
