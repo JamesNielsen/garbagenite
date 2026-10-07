@@ -22,4 +22,5 @@ drinks:
   - Miller Lite
   - Wild State
   - Voodoo Ranger Slasher IPA
+  - Fireball
 ---
