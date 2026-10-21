@@ -9,8 +9,6 @@ attendees: |-
   James 
   Al
   Matt
-specialEvents:
-  - {}
 topics:
   - "Al's Weight "
   - Android vs iPhone
