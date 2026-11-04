@@ -5,6 +5,8 @@ attendees: Al, Dan, Tim, Shawn, Matt, Andy and James
 topics:
   - Wild Win!
   - "House fires "
+  - Places to eat
+  - Don’t Miss
 drinks:
   - Lake Fellow Juicy
   - Birdie
