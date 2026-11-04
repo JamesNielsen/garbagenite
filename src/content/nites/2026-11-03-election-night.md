@@ -22,4 +22,6 @@ drinks:
   - Busch Light
   - Miller High Life Light
   - Bent Paddle
+  - "Lagunitas Hazicus Maximus "
+  - Deschutes Tropical Squeeze
 ---
