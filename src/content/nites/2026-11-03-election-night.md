@@ -15,4 +15,9 @@ drinks:
   - "Schell’s Octoberfest "
   - Mad Butcher
   - Voodoo Ranger IPA
+  - Miller Lite
+  - Coors Light
+  - Foggy Geezer
+  - Summit Saga IPA
+  - Busch Light
 ---
