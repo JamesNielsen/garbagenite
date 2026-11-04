@@ -7,6 +7,7 @@ topics:
   - "House fires "
   - Places to eat
   - Don’t Miss
+  - Costco
 drinks:
   - Lake Fellow Juicy
   - Birdie
