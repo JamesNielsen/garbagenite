@@ -20,4 +20,6 @@ drinks:
   - Foggy Geezer
   - Summit Saga IPA
   - Busch Light
+  - Miller High Life Light
+  - Bent Paddle
 ---
