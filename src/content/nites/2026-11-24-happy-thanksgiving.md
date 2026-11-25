@@ -6,7 +6,7 @@ topics:
   - Vikings suck
   - "Homemade Kahlua "
   - Snowless winter
-  - Fresh is e
+  - Fresh ice is the best ice to fish
 drinks:
   - Coors Light
   - Lagunitas IPA
