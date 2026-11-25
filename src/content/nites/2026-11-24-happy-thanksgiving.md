@@ -1,7 +1,7 @@
 ---
 title: Happy Thanksgiving!
 date: 2026-11-24
-attendees: Al, Dan, Tim, James and Darren
+attendees: Al, Dan, Tim, James, Darren and Matt
 topics:
   - Vikings suck
   - "Homemade Kahlua "
@@ -16,4 +16,5 @@ drinks:
   - Surley Furious
   - Smirnoff Ice
   - Stella atrios
+  - Find Wunder
 ---
