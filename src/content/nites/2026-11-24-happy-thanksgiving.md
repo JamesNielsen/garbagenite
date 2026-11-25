@@ -1,7 +1,7 @@
 ---
 title: Happy Thanksgiving!
 date: 2026-11-24
-attendees: Al, Dan, Tim and James
+attendees: Al, Dan, Tim, James and Darren
 topics:
   - Vikings suck
   - "Homemade Kahlua "
@@ -12,4 +12,6 @@ drinks:
   - Lagunitas IPA
   - Busch Light
   - "Seagrams Raspberry "
+  - Foggy Geezer
+  - Surley Furious
 ---
