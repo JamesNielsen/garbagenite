@@ -14,4 +14,6 @@ drinks:
   - "Seagrams Raspberry "
   - Foggy Geezer
   - Surley Furious
+  - Smirnoff Ice
+  - Stella atrios
 ---
